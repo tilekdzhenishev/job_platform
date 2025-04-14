@@ -1,5 +1,5 @@
 """
-URL configuration for auth_service project.
+URL configuration for profile_service project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -16,16 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import register, ProtectedView, CustomTokenObtainPairView
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
 
 urlpatterns = [
-     path('api/auth/register/', register, name='register'),
-     path('api/auth/login/', CustomTokenObtainPairView.as_view(), name='login'),
-    path('api/auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-     path('api/auth/protected/', ProtectedView.as_view(), name='protected'),
+    path('admin/', admin.site.urls),
 ]
-

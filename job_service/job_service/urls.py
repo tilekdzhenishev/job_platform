@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework.permissions import IsAuthenticated
+from django.urls import path
+from .views import JobView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/jobs/', JobView.as_view(), name='job_list'),
 ]
